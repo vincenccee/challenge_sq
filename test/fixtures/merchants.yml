@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+treutel_schumm_fadel:
+  title: treutel_schumm_fadel
+  email: info@treutel-schumm-and-fadel.com
+  live_on: 2023-01-01
+  disbursement_frequency: :weekly
+  minimum_monthly_fee: 29.0
+
+windler_and_sons:
+  title: windler_and_sons
+  email: MyString
+  live_on: 2023-01-02
+  disbursement_frequency: :daily
+  minimum_monthly_fee: 29.0
