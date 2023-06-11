@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+first_order:
+  merchant: treutel_schumm_fadel
+  amount: 10.99
+  purchased_at: 2023-01-01
+
+second_order:
+  merchant: windler_and_sons
+  amount: 0.99
+  purchased_at: 2023-01-02
