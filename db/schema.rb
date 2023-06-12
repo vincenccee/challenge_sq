@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_11_194000) do
+ActiveRecord::Schema.define(version: 2023_06_11_214423) do
+
+  create_table "disbursements", force: :cascade do |t|
+    t.integer "merchant_id", null: false
+    t.decimal "amount", precision: 8, scale: 2, null: false
+    t.decimal "fee", precision: 8, scale: 2, null: false
+    t.date "disbursement_date", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["merchant_id"], name: "index_disbursements_on_merchant_id"
+  end
 
   create_table "merchants", force: :cascade do |t|
     t.string "title", null: false
@@ -28,6 +38,7 @@ ActiveRecord::Schema.define(version: 2023_06_11_194000) do
     t.date "purchased_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "disbursement_id"
     t.index ["merchant_id"], name: "index_orders_on_merchant_id"
   end
 

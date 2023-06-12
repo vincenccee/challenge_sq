@@ -1,5 +1,6 @@
 class Merchant < ApplicationRecord
   has_many :orders, inverse_of: :merchant
+  has_many :disbursements, inverse_of: :merchant
 
   validates :title, presence: true
   validates :email, presence: true
