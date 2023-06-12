@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  merchant: treutel_schumm_fadel
+  amount: 99.00
+  fee: 1.00
+  disbursement_date: 2023-01-01
+
+two:
+  merchant: windler_and_sons
+  amount: 49.50
+  fee: 0.50
+  disbursement_date: 2023-01-01
