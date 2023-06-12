@@ -13,4 +13,8 @@ class Merchant < ApplicationRecord
   def week_day
     self.live_on.wday
   end
+
+  def daily?
+    self.disbursement_frequency == 'daily'
+  end
 end

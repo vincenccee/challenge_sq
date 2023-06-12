@@ -34,4 +34,16 @@ class MerchantTest < ActiveSupport::TestCase
       assert_equal merchant.week_day, 0
     end
   end
+
+  describe 'daily or weekly frequency' do
+    it 'should return true when daily' do
+      merchant = Fabricate(:merchant, disbursement_frequency: :daily)
+      assert merchant.daily?
+    end
+
+    it 'should return false when weekly' do
+      merchant = Fabricate(:merchant, disbursement_frequency: :weekly)
+      refute merchant.daily?
+    end
+  end
 end
