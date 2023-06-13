@@ -1,6 +1,6 @@
 require "test_helper"
 
-class MinimumMonthlyFeeTest < ActiveSupport::TestCase
+class MinimumMonthlyChargeTest < ActiveSupport::TestCase
   describe 'validation' do
     let(:merchant) { merchants(:treutel_schumm_fadel) }
     let(:amount) { 108.54 }
@@ -8,7 +8,7 @@ class MinimumMonthlyFeeTest < ActiveSupport::TestCase
     let(:month) { 1 }
 
     it 'should be valid' do
-      minimum_monthly_fee = MinimumMonthlyFee.new(
+      minimum_monthly_fee = MinimumMonthlyCharge.new(
         merchant: merchant,
         amount: amount,
         year: year,
@@ -18,7 +18,7 @@ class MinimumMonthlyFeeTest < ActiveSupport::TestCase
     end
 
     it 'should not be valid' do
-      order = MinimumMonthlyFee.new
+      order = MinimumMonthlyCharge.new
       refute order.valid?
       assert_equal order.errors.full_messages,
         ["Merchant must exist", "Amount can't be blank", "Year can't be blank", "Month can't be blank"]

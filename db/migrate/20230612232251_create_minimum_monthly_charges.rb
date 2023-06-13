@@ -1,6 +1,6 @@
-class CreateMinimumMonthlyFees < ActiveRecord::Migration[6.1]
+class CreateMinimumMonthlyCharges < ActiveRecord::Migration[6.1]
   def up
-    create_table :minimum_monthly_fees do |t|
+    create_table :minimum_monthly_charges do |t|
       t.belongs_to :merchant, null: false, foreign_key: true
       t.decimal :amount, null: false
       t.integer :year, null: false
@@ -11,6 +11,6 @@ class CreateMinimumMonthlyFees < ActiveRecord::Migration[6.1]
   end
 
   def down
-    drop_table :minimum_monthly_fees
+    drop_table :minimum_monthly_charges
   end
 end

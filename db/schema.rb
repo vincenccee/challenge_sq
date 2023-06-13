@@ -32,14 +32,14 @@ ActiveRecord::Schema.define(version: 2023_06_12_232251) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "minimum_monthly_fees", force: :cascade do |t|
+  create_table "minimum_monthly_charges", force: :cascade do |t|
     t.integer "merchant_id", null: false
     t.decimal "amount", null: false
     t.integer "year", null: false
     t.integer "month", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["merchant_id"], name: "index_minimum_monthly_fees_on_merchant_id"
+    t.index ["merchant_id"], name: "index_minimum_monthly_charges_on_merchant_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -52,5 +52,5 @@ ActiveRecord::Schema.define(version: 2023_06_12_232251) do
     t.index ["merchant_id"], name: "index_orders_on_merchant_id"
   end
 
-  add_foreign_key "minimum_monthly_fees", "merchants"
+  add_foreign_key "minimum_monthly_charges", "merchants"
 end

@@ -1,7 +1,7 @@
 class Merchant < ApplicationRecord
   has_many :orders, inverse_of: :merchant
   has_many :disbursements, inverse_of: :merchant
-  has_many :minimum_monthly_fees, inverse_of: :merchant
+  has_many :minimum_monthly_charges, inverse_of: :merchant
 
   validates :title, presence: true
   validates :email, presence: true
