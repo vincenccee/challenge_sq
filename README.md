@@ -7,19 +7,28 @@ Rails 6.1.7.3
 ## How to Run instructions
 
 - This is a simple Rails application without interface, so evething is done by console.
+
 `& bundle exec rails console`
 
 - To load the Merchants you will have to run this script into the rails console
   - Sice I changed some of the column's names I removed the header of the csv file and hard coded into the script, so to import remeber to remove the header from the csv.
   - Replace the [csv_file_path] with your path
+
 ```LoadMerchantData.new('[csv_file_path]/merchants.csv').call```
+
 - To load the Orders you will have to run this other scrpit
   - Same thing from the above. Remeber to remove the header from the csv
+
 ```LoadOrderData.new('[csv_file_path]/orders.csv').call```
+
 - To calculate the disbursement of a specific Merchant you can run the service `DisbursementCalculation` for a specific date
+
 ```DisbursementCalculation.new(merchant).run(Date.new(2023, 1, 1))```
+
 - To calculate the minimum monthlt fee of a specific Merchant you can run the service `MinimumMonthlyFeeCalculation` for a specific date of the month
+
 ```MinimumMonthlyFeeCalculation.new(merchant).run(Date.new(2023, 1, 1))```
+
 - To run a batch of calculations I created a script that checks the oldest order and the newest one to run the disbursement calculation for every day between these dates. This script will run for every merchant using the date of the loop.
   - At the first day of the month it will call the MinimumMonthlyFeeCalculation service for every merchant to check if a minimum monthly fee is necessary for that merchant.
 
@@ -39,13 +48,17 @@ Rails 6.1.7.3
 - Run a script that will will include all the samples from the CSV files by checking the oldest date and run the service for all days in the sample
 - ~~create a queue that will run this service daily at 7:50 UTC~~
 
-Next steps to polish
+## Next steps
+
+- Due to time constraints I didn't create a queue to run the disbursement calculation everyday at 7:50 UTC. But the logic would be the same as the `CalculatePreviousData` script, where would use the current day date.
+
+these are some validations that I noticed while coding that I should add in the future.
 
 - Add a validation for the email attribute for merchants with a RegEx for the email format.
 - Add validation for the order amount to prevent negative and zero values
 - Add validation for disbursement for disbursement date to be uniq
 
-* result
+## result
 
 | Year |Number of disbursements	| Amount disbursed to merchants	| Amount of order fees | Number of monthly fees charged (From minimum monthly fee) |	Amount of monthly fee charged (From minimum monthly fee) |
 | ----------- | ----------- | --------------- | ------------- | ------------- | ------------- |
