@@ -6,6 +6,8 @@ class DisbursementCalculation
   end
 
   def run(date)
+    return if merchant.disbursements.where(disbursement_date: date).present?
+
     orders = orders_within_date(date)
 
     return if orders.blank?

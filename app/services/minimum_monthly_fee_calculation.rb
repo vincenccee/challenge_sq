@@ -6,6 +6,7 @@ class MinimumMonthlyFeeCalculation
   end
 
   def run(date)
+    return if merchant.minimum_monthly_charges.where(year: date.year, month: date.month).present?
     return if merchant.minimum_monthly_fee == 0.0
 
     disbursements = disbursements_of_month(date)
